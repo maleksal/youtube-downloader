@@ -34,7 +34,7 @@ def write_bashrc():
 if __name__ == "__main__":
     
     # install requirements
-    #install_requirements()
+    install_requirements()
 
     # write user into command.sh
     command_sh()
