@@ -51,7 +51,7 @@ if __name__ == "__main__":
     try:
         url = str(sys.argv[1])
     except:
-        print(" usage : download -U (for url) <url> ")
+        print(" usage : download <url> ")
 
         sys.exit()
     
