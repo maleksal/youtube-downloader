@@ -1,7 +1,11 @@
-# youtube downloader [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)]
+# Youtube Downloader V1.0
 
-> A command line tool to download a youtube video audio by url for Ubuntu
+> A GUI app to download a youtube video audio for Ubuntu
 
+![alt text](https://github.com/maleksal/youtube-downloader/blob/master/app.png)
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)]
+ 
+ 
 ### Setup?
 * Install FFmbeg
 ``` Terminal
