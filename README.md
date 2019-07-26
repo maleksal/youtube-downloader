@@ -1,13 +1,21 @@
-# Youtube Downloader V1.0
+<h1 align="center">Youtube Downloader v1.0</h1>
 
-> A GUI app to download a youtube video audio for Ubuntu
+> <p align="center">An Mp3 converter using a simple graphical interface built using <a href="https://github.com/ChrisKnott/Eel">Eel</a> in Python. for UBUNTU</p>
 
-![alt text](https://github.com/maleksal/youtube-downloader/blob/master/app.png)
-[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)]
+<p align="center">
+    <img src="https://github.com/maleksal/youtube-downloader/blob/master/app.png" alt="Empty interface" width="360">
+</p>
+ 
+<p align="center">
+<a href="https://www.python.org/downloads/release/python-360">
+ <img src="https://img.shields.io/badge/python-3.6-blue.svg" alt="Python"></a>
+
+</p>
  
  
-### Setup?
-* Install FFmbeg
+### Installation
+
+* Install [FFmbeg](https://ffmpeg.org/)
 ``` Terminal
 sudo apt install ffmpeg
 ```
@@ -25,7 +33,6 @@ OUTPUT = <path>   EX: /home/development/Music
 ```
 
 
-### Run Command in Terminal
-```terminal
-download <video URL>
-```
+### Usage 
+
+> Type command  "download" in the terminal
