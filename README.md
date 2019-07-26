@@ -3,6 +3,11 @@
 > A command line tool to download a youtube video audio by url for Ubuntu
 
 ### Setup?
+* Install FFmbeg
+``` Terminal
+sudo apt install ffmpeg
+```
+
 * Run config.py 
 ```terminal
 python3 config.py
