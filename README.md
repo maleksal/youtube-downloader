@@ -3,7 +3,7 @@
 > <p align="center">An Mp3 converter using a simple graphical interface built using <a href="https://github.com/ChrisKnott/Eel">Eel</a> in Python. for UBUNTU</p>
 
 <p align="center">
-    <img src="https://github.com/maleksal/youtube-downloader/blob/master/app.png" alt="Empty interface" width="360">
+    <img src="https://github.com/maleksal/youtube-downloader/blob/master/Dribbble Shot (23).png" alt="Empty interface" width="600">
 </p>
  
 <p align="center">
