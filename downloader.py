@@ -2,63 +2,91 @@ from __future__ import unicode_literals
 
 import os
 import sys
+import pathlib
 
 import youtube_dl
 import configparser
 
+from tkinter import filedialog
+from tkinter import *
 
-def config():
-    """
-    get data from config.ini
-    """
-    config = configparser.ConfigParser()
-    config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini'))
-    return config
+import eel
 
 
-def downloader(url):
 
-    # Configure
-    download_options = {
-        'format': 'bestaudio/best',
-        'outtmpl': '%(title)s.%(ext)s',
-        'nocheckcertificate': True,
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-    }
+class Youtube_Downloader():
 
-    # Change Dir
-    os.chdir(config()["PATH"]["OUTPUT"])
+    def __init__(self):
 
-    # Song Directory
-    if not os.path.exists('Songs'):
-        os.mkdir('Songs')
-    else:
-        os.chdir('Songs')
+        # Configure
+        self.download_options = {
+            'format': 'bestaudio/best',
+            'outtmpl': '%(title)s.%(ext)s',
+            'nocheckcertificate': True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
 
-    # Download Songs
-    with youtube_dl.YoutubeDL(download_options) as dl:
-        dl.download([url])
+        # Change Dir
+        os.chdir(self.config_file()["PATH"]["OUTPUT"])
 
+        # Song Directory
+        if not os.path.exists('Songs'):
+            os.mkdir('Songs')
+        else:
+            os.chdir('Songs')
+
+    def config_file(self):
+        #get data from config.ini
+        
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini'))
+        return config
+
+    def download_url_list(self, file_path):
+
+        # Download multiple songs from list
+        with youtube_dl.YoutubeDL(self.download_options) as dl:
+            
+            try:
+                with open(file, 'r') as f:
+                        for song_url in f:
+                            dl.download([song_url])
+                            print('\n -----------| Mp3 downloaded |-----------\n')
+            except :
+                print("\n[!] Check Path or URL")
+
+                        
+    def download_url(self, url):
+        
+        # download single song
+        with youtube_dl.YoutubeDL(self.download_options) as dl:
+            try:
+                dl.download([url])
+                print('\n -----------| Mp3 downloaded |-----------\n')
+            except:
+                pass
+        
 
 
 
 if __name__ == "__main__":    
-    
-    try:
-        url = str(sys.argv[1])
-    except:
-        print(" usage : download -U (for url) <url> ")
 
-        sys.exit()
-    
-    downloader(url)
-    
+    eel.init(f"{pathlib.Path(__file__).parent}/web")
+
+    app = Youtube_Downloader()
+
+    @eel.expose
+    def js_url_download(url):
+        app.download_url(url)
 
 
+    @eel.expose
+    def js_url_list_download(url_path):
+        app.download_url_list(url_path)
 
-    
+    eel.start("index.html", size=(386,658))
 

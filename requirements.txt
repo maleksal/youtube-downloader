@@ -1,1 +1,2 @@
-youtube-dl==2018.5.1
+Eel==0.10.4
+youtube_dl==2019.7.16

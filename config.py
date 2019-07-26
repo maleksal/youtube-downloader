@@ -15,7 +15,7 @@ def install_requirements():
 def command_sh():
     code = (
     " #!/bin/bash\n\nfunction download() {\n" 
-    + f"python3 {os.getcwd()}/downloader.py $1 \n"
+    + f"python3 {os.getcwd()}/downloader.py\n"
     +"}")
 
     file = open("command.sh","w")
